@@ -1,12 +1,15 @@
 'use strict';
 
-// require('dotenv').config();
+require('dotenv').config();
+const server = require('./src/app');
 const mongoose = require('mongoose');
+
 
 const mongooseOptions = {
   useNewUrlParser:true,
   useCreateIndex: true,
+  useUnifiedTopology: true,
 };
-mongoose.connect('mongodb+srv://leylali:loisli1155665@cluster0-o9fll.mongodb.net/test?retryWrites=true&w=majority', mongooseOptions);
+mongoose.connect(process.env.MONGODB_URI, mongooseOptions);
 
-require('./src/app.js').start(3000);
+server.start();
