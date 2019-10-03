@@ -12,6 +12,7 @@ const notFound = require('./middleware/not-found');
 //Routes
 
 const authRouter = require('./route/auth');
+const apiRouter = require('./route/api');
 //Models
 
 const app = express();
@@ -21,8 +22,11 @@ app.use(cors());
 app.use(morgan('dev'));
 //this allows you to get access to json in the request body
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use(authRouter);
+app.use(apiRouter);
+
 app.use('*', notFound);
 app.use(errorHandler);
 
