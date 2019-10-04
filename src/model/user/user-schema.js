@@ -54,7 +54,6 @@ user.methods.comparePassword = function (password) {
     .then(valid => valid ? this : null);
 };
 
-//bearer auth
 
 //generating tokens
 user.methods.generateToken = function (type) {

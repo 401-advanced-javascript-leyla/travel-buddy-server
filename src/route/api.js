@@ -12,7 +12,7 @@ router.param('model', modelFinder);
 
 //define a consistent set of routes that can be reusable for all the modles
 router.get('/api/v1/:model', handleGetAll);
-router.get('api/v1/:model/:id', handleGetOne);
+router.get('/api/v1/:model/:id', handleGetOne);
 
 //if we add the auth() as middleware, we have to add headers (username, password) to make the route work
 router.post('/api/v1/:model', handlePost);
@@ -44,6 +44,7 @@ function handlePost(req, res, next) {
 }
 
 function handlePut(req, res, next) {
+  console.log('here', req.params);
   req.model.put(req.params.id, req.body)
     .then(result=>{
       return res.json(result);  
@@ -54,7 +55,7 @@ function handlePut(req, res, next) {
 function handleDelete(req, res, next) {
   req.model.delete(req.params.id)
     .then(()=>{
-      return res.status = 200;
+      res.send(200);
     })
     .catch(next);
 }
