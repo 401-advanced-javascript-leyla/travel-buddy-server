@@ -11,6 +11,7 @@ class DataModel {
   }
 
   post(record) {
+    console.log(record);
     let newRecord = new this.schema(record);
     return newRecord.save();
   }
