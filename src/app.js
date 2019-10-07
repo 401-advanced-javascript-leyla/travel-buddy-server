@@ -27,10 +27,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(authRouter);
 app.use(apiRouter);
 
+app.use('/docs', express.static('./docs'));
+
 app.use('*', notFound);
 app.use(errorHandler);
 
-app.use('/docs', express.static('./docs'));
 
 module.exports = {
   server: app,

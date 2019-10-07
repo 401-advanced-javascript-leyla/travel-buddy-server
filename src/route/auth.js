@@ -1,5 +1,7 @@
 'use strict';
 
+/** @module auth */
+
 //here we test the funcs with supertest
 //use post man
 
@@ -8,6 +10,13 @@ const router = express.Router();
 
 const User = require('../model/user/user-schema');
 const auth = require('../middleware/auth');
+
+/**
+ * @route POST /signup
+ * @param request {object}
+ * @param response {object}
+ * @param next {function} a middleware function for the route to get data from the database
+ */
 
 router.post('/signup', (req, res, next) => {
   let user = new User(req.body);
@@ -21,6 +30,13 @@ router.post('/signup', (req, res, next) => {
     })
     .catch(next);
 });
+
+/**
+ * @route POST /signin
+ * @param request {object}
+ * @param response {object}
+ * @param next {function} a middleware function for the route to get data from the database
+ */
 
 router.post('/signin', auth(), (req,res,next) => {
   res.set('token', req.token);
