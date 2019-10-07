@@ -30,6 +30,8 @@ app.use(apiRouter);
 app.use('*', notFound);
 app.use(errorHandler);
 
+app.use('/docs', express.static('./docs'));
+
 module.exports = {
   server: app,
   start: port => {
