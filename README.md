@@ -5,23 +5,20 @@
 ### Author: Leyla Li
 
 ### Links and Resources
-* [submission PR](https://github.com/401-advanced-javascript-leyla/travel-buddy-server/pulls)
+* [submission PR](https://github.com/401-advanced-javascript-leyla/travel-buddy-server)
 * [travis]()
 
 #### Documentation
-* [jsdoc]()
-* [jsdoc]()
+* [jsdoc](localhost:8080/docs)
 
 
 ### Modules
-#### `mongo.js`
-#### `users.js`
-#### `destinations.js`
+#### `mongoose-model.js`
+#### `user-schema.js`
+#### `todo-schema.js`
 
 ### Setup
-* `PORT` - 3000
-* `SWAGGER PORT` - 5000
-* `MONGODB_URI` - inclueded in index.js
+* `PORT` - 8080
 
 #### Running the app
 * `npm start`
@@ -33,4 +30,4 @@
 * `npm run test`
 
 #### UML
-Link to an image of the UML for your application and response to events
+![UML](./travel-buddy-uml.jpg)
